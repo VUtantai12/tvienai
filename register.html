@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký - Kho Trí Thức Số</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Additional styles for register page */
+        .register-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .register-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        .btn-register-page {
+            width: 100%;
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .btn-register-page:hover {
+            background-color: #2980b9;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            color: #555;
+        }
+        
+        .login-link a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            color: #3498db;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .back-home i {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple Header for Register Page -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <h1><i class="fas fa-book-open"></i> Kho Trí Thức Số</h1>
+                </div>
+                <a href="../index.html" class="back-home"><i class="fas fa-arrow-left"></i> Quay lại Trang chủ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Register Form -->
+    <main>
+        <div class="container">
+            <div class="register-container">
+                <h2 class="register-title">Đăng Ký Thành Viên</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="fullname"><i class="fas fa-user"></i> Họ và tên:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên của bạn" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                        <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Số điện thoại:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="0123 456 789">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Mật khẩu:</label>
+                        <input type="password" id="password" name="password" placeholder="Ít nhất 8 ký tự" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password"><i class="fas fa-lock"></i> Xác nhận mật khẩu:</label>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Nhập lại mật khẩu" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms" style="display: inline; font-weight: normal;">
+                            Tôi đồng ý với <a href="#" style="color: #3498db;">Điều khoản dịch vụ</a> và <a href="#" style="color: #3498db;">Chính sách bảo mật</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn-register-page">
+                        <i class="fas fa-user-plus"></i> Đăng Ký Ngay
+                    </button>
+                </form>
+                
+                <div class="login-link">
+                    Đã có tài khoản? <a href="#">Đăng nhập tại đây</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Kho Trí Thức Số. Tất cả các quyền được bảo lưu.</p>
+            <p>Liên hệ: info@khotrithucso.vn | Điện thoại: 0123 456 789</p>
+        </div>
+    </footer>
+
+    <script>
+        // Form validation
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Mật khẩu xác nhận không khớp! Vui lòng nhập lại.');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Mật khẩu phải có ít nhất 8 ký tự!');
+                return;
+            }
+            
+            // If everything is OK
+            alert('Đăng ký thành công! Vui lòng kiểm tra email để xác nhận tài khoản.');
+            // In a real application, you would submit the form to a server here
+            // window.location.href = "../index.html"; // Redirect to home page
+        });
+    </script>
+</body>
+</html>
