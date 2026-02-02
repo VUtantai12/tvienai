@@ -12,14 +12,17 @@
 <p id="welcome"></p>
 
 <button onclick="logout()">Đăng xuất</button>
-
 <script src="script.js"></script>
 <script>
   checkLogin();
+
   const user = JSON.parse(localStorage.getItem("currentUser"));
-  document.getElementById("welcome").innerText =
-    "Xin chào: " + user.username;
+  if (user) {
+    document.getElementById("welcome").innerText =
+      "Xin chào: " + (user.username || user.email);
+  }
 </script>
+
 
 </body>
 </html>
