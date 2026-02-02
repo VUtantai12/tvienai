@@ -1,145 +1,25 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kho Trí Thức Số Cho Tương Lai</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Trang chủ</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <h1><i class="fas fa-book-open"></i> Kho Trí Thức Số</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="#"><i class="fas fa-home"></i> Trang chủ</a></li>
-                    <li><a href="#"><i class="fas fa-book"></i> Đầu sách</a></li>
-                    <li><a href="#"><i class="fas fa-user-friends"></i> Thành viên</a></li>
-                    <li><a href="#"><i class="fas fa-ebook"></i> E-book</a></li>
-                </ul>
-                <div class="nav-buttons">
-                    <a href="pages/register.html" class="btn btn-register"><i class="fas fa-user-plus"></i> Đăng ký</a>
-                    <a href="#" class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Đăng nhập</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Kho Trí Thức Số Cho Tương Lai</h1>
-                <p class="hero-subtitle">Hơn 50,000 đầu sách, tài liệu học thuật và nghiên cứu chuyên ngành</p>
-                
-                <!-- Search Box -->
-                <div class="search-box">
-                    <div class="search-input">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Tìm kiếm sách, tác giả, ISBN...">
-                    </div>
-                    <button class="btn btn-search">Tìm kiếm</button>
-                </div>
-                
-                <!-- Stats -->
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">15,000+</div>
-                        <div class="stat-label">Đầu sách</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">20,000+</div>
-                        <div class="stat-label">Thành viên</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10,000+</div>
-                        <div class="stat-label">E-book</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<h1>Chào mừng đến Thư viện</h1>
 
-    <!-- Featured Books -->
-    <section class="featured">
-        <div class="container">
-            <h2 class="section-title">Sách Nổi Bật</h2>
-            <div class="books-grid">
-                <!-- Book 1 -->
-                <div class="book-card">
-                    <div class="book-cover">
-                        <i class="fas fa-book fa-3x"></i>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Lập Trình Web Hiện Đại</h3>
-                        <p class="book-author">Nguyễn Văn A</p>
-                        <div class="book-meta">
-                            <span><i class="fas fa-tag"></i> Công nghệ</span>
-                            <span><i class="fas fa-star"></i> 4.8/5</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Book 2 -->
-                <div class="book-card">
-                    <div class="book-cover">
-                        <i class="fas fa-book fa-3x"></i>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Trí Tuệ Nhân Tạo Ứng Dụng</h3>
-                        <p class="book-author">Trần Thị B</p>
-                        <div class="book-meta">
-                            <span><i class="fas fa-tag"></i> AI</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Book 3 -->
-                <div class="book-card">
-                    <div class="book-cover">
-                        <i class="fas fa-book fa-3x"></i>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Khoa Học Dữ Liệu Cơ Bản</h3>
-                        <p class="book-author">Lê Văn C</p>
-                        <div class="book-meta">
-                            <span><i class="fas fa-tag"></i> Data Science</span>
-                            <span><i class="fas fa-star"></i> 4.7/5</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Book 4 -->
-                <div class="book-card">
-                    <div class="book-cover">
-                        <i class="fas fa-book fa-3x"></i>
-                    </div>
-                    <div class="book-info">
-                        <h3 class="book-title">Thiết Kế Giao Diện Người Dùng</h3>
-                        <p class="book-author">Phạm Thị D</p>
-                        <div class="book-meta">
-                            <span><i class="fas fa-tag"></i> UI/UX</span>
-                            <span><i class="fas fa-star"></i> 4.6/5</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<p id="welcome"></p>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2023 Kho Trí Thức Số. Tất cả các quyền được bảo lưu.</p>
-            <p>Liên hệ: info@khotrithucso.vn | Điện thoại: 0123 456 789</p>
-        </div>
-    </footer>
+<button onclick="logout()">Đăng xuất</button>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
+<script>
+  checkLogin();
+  const user = JSON.parse(localStorage.getItem("currentUser"));
+  document.getElementById("welcome").innerText =
+    "Xin chào: " + user.username;
+</script>
+
 </body>
 </html>
