@@ -2,27 +2,36 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Trang chủ</title>
+  <title>Thư viện</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Chào mừng đến Thư viện</h1>
+  <h1>Chào mừng đến Thư viện</h1>
 
-<p id="welcome"></p>
+  <p id="welcome"></p>
+  <button onclick="logout()">Đăng xuất</button>
 
-<button onclick="logout()">Đăng xuất</button>
-<script src="script.js"></script>
-<script>
-  checkLogin();
+  <hr>
 
-  const user = JSON.parse(localStorage.getItem("currentUser"));
-  if (user) {
-    document.getElementById("welcome").innerText =
-      "Xin chào: " + (user.username || user.email);
-  }
-</script>
+  <h3>Chức năng</h3>
+  <ul>
+    <li><a href="books.html">📚 Quản lý sách</a></li>
+    <li><a href="borrow.html">📖 Mượn / Trả sách</a></li>
+    <li><a href="users.html">👤 Quản lý người dùng</a></li>
+  </ul>
 
+  <script src="script.js"></script>
+  <script>
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("welcome").innerText =
+        "Xin chào: " + (user.username || user.email);
+    }
+  </script>
 
 </body>
 </html>
