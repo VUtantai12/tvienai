@@ -1,37 +1,147 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <title>Thư viện</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Thư viện Online</title>
+<style>
+body{
+  font-family: Arial;
+  margin:0;
+  background:#f4f6f8;
+}
+header{
+  background:#2c3e50;
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+}
+nav button{
+  margin-left:10px;
+}
+.container{
+  padding:20px;
+}
+.hidden{display:none;}
+
+input, button{
+  padding:8px;
+  margin:5px 0;
+}
+.book{
+  background:white;
+  padding:10px;
+  margin:10px 0;
+  border-left:5px solid #3498db;
+}
+</style>
 </head>
+
 <body>
 
-  <h1>Chào mừng đến Thư viện</h1>
+<header>
+  <h2>📚 Thư viện Online</h2>
+  <nav>
+    <span id="userInfo"></span>
+    <button onclick="logout()">Đăng xuất</button>
+  </nav>
+</header>
 
-  <p id="welcome"></p>
-  <button onclick="logout()">Đăng xuất</button>
+<div class="container">
 
-  <hr>
+<!-- LOGIN / REGISTER -->
+<div id="auth">
+  <h3>Đăng nhập</h3>
+  <input id="loginUser" placeholder="Tên đăng nhập">
+  <input id="loginPass" type="password" placeholder="Mật khẩu">
+  <button onclick="login()">Đăng nhập</button>
 
-  <h3>Chức năng</h3>
-  <ul>
-    <li><a href="books.html">📚 Quản lý sách</a></li>
-    <li><a href="borrow.html">📖 Mượn / Trả sách</a></li>
-    <li><a href="users.html">👤 Quản lý người dùng</a></li>
-  </ul>
+  <h3>Đăng ký</h3>
+  <input id="regUser" placeholder="Tên đăng nhập">
+  <input id="regPass" type="password" placeholder="Mật khẩu">
+  <button onclick="register()">Đăng ký</button>
+</div>
 
-  <script src="script.js"></script>
-  <script>
-    const user = JSON.parse(localStorage.getItem("currentUser"));
+<!-- MAIN -->
+<div id="main" class="hidden">
+  <h3>Quản lý sách</h3>
+  <input id="bookName" placeholder="Tên sách">
+  <button onclick="addBook()">Thêm sách</button>
 
-    if (!user) {
-      window.location.href = "login.html";
-    } else {
-      document.getElementById("welcome").innerText =
-        "Xin chào: " + (user.username || user.email);
-    }
-  </script>
+  <div id="bookList"></div>
+</div>
+
+</div>
+
+<script>
+let users = JSON.parse(localStorage.getItem("users")) || [];
+let books = JSON.parse(localStorage.getItem("books")) || [];
+let currentUser = localStorage.getItem("currentUser");
+
+function save(){
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("books", JSON.stringify(books));
+}
+
+function register(){
+  let u = regUser.value;
+  let p = regPass.value;
+  if(!u || !p) return alert("Nhập đủ thông tin");
+  if(users.find(x=>x.u===u)) return alert("Tài khoản tồn tại");
+  users.push({u,p});
+  save();
+  alert("Đăng ký thành công");
+}
+
+function login(){
+  let u = loginUser.value;
+  let p = loginPass.value;
+  let ok = users.find(x=>x.u===u && x.p===p);
+  if(!ok) return alert("Sai tài khoản");
+  localStorage.setItem("currentUser", u);
+  location.reload();
+}
+
+function logout(){
+  localStorage.removeItem("currentUser");
+  location.reload();
+}
+
+function addBook(){
+  let name = bookName.value;
+  if(!name) return;
+  books.push(name);
+  save();
+  renderBooks();
+  bookName.value="";
+}
+
+function delBook(i){
+  books.splice(i,1);
+  save();
+  renderBooks();
+}
+
+function renderBooks(){
+  bookList.innerHTML="";
+  books.forEach((b,i)=>{
+    bookList.innerHTML+=`
+      <div class="book">
+        ${b}
+        <button onclick="delBook(${i})">Xoá</button>
+      </div>`;
+  });
+}
+
+if(currentUser){
+  auth.classList.add("hidden");
+  main.classList.remove("hidden");
+  userInfo.innerText="Xin chào: "+currentUser;
+  renderBooks();
+}else{
+  document.querySelector("nav").style.display="none";
+}
+</script>
 
 </body>
 </html>
